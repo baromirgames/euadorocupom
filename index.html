@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grupo VIP de Cupons</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #000;
+      color: white;
+      text-align: center;
+    }
+    .top-banner {
+      background-color: #e00000;
+      color: white;
+      padding: 15px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .main-title {
+      font-size: 24px;
+      margin-top: 30px;
+    }
+    .sub-title {
+      font-size: 18px;
+      margin: 10px 0 30px;
+    }
+    .logo {
+      width: 200px;
+      height: auto;
+      border: 2px solid white;
+      border-radius: 10px;
+    }
+    .btn-participar {
+      background-color: #00cc00;
+      color: white;
+      border: none;
+      padding: 20px 40px;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 50px;
+      margin: 30px 0;
+      cursor: pointer;
+      box-shadow: 0 0 20px #00cc00;
+      animation: shake 0.5s ease-in-out;
+    }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+    }
+    .footer-text {
+      font-size: 16px;
+      margin-bottom: 30px;
+    }
+    .countdown {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    .entrando {
+      margin-top: 20px;
+      min-height: 40px;
+      font-size: 16px;
+      color: #fff8a4;
+    }
+    .vagas {
+      color: #ffeb3b;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-banner">
+    🎯 APROVEITE AGORA AS MELHORES PROMOÇÕES DE 2025!
+  </div>
+
+  <div class="main-title">
+    🚨 GRUPO VIP DE PROMOÇÕES E CUPONS 🚨
+  </div>
+  <div class="sub-title">
+    Produtos com 50% 60% 70% OFF 🥰
+  </div>
+
+  <img src="https://i.postimg.cc/vTM1Q1Bc/logo-JPG.jpg" alt="Logo" class="logo">
+
+  <div class="countdown" id="timer">Oferta expira em: 01:00</div>
+  <div class="vagas" id="vagas">Vagas restantes: 50</div>
+  <div class="entrando" id="entrando"></div>
+
+  <button class="btn-participar" onclick="window.location.href='https://chat.whatsapp.com/GnkkZuAapgp0Zutp9HoPZP'">
+    QUERO PARTICIPAR
+  </button>
+
+  <div class="footer-text">
+    💥 JÁ SOMOS +50 MIL MEMBROS 💥
+  </div>
+
+  <script>
+    // Contador regressivo de 1 minuto
+    let timeLeft = 60;
+    const timer = document.getElementById("timer");
+    const interval = setInterval(() => {
+      timeLeft--;
+      let min = String(Math.floor(timeLeft / 60)).padStart(2, '0');
+      let sec = String(timeLeft % 60).padStart(2, '0');
+      timer.innerText = `Oferta expira em: ${min}:${sec}`;
+      if (timeLeft <= 0) clearInterval(interval);
+    }, 1000);
+
+    // Lista de nomes entrando no grupo
+    const nomes = [
+      "Ana Paula", "Carlos Silva", "Bruno Costa", "Fernanda Lima", "Marcos Souza",
+      "Juliana Rocha", "Rodrigo Mendes", "Amanda Teixeira", "Lucas Almeida",
+      "Patrícia Santos", "Daniela Moraes", "Tiago Oliveira", "Beatriz Ramos",
+      "Gabriel Ferreira", "Camila Martins", "Vinícius Prado", "Letícia Vieira",
+      "Felipe Duarte", "Natalia Nunes", "Rafael Pinto"
+    ];
+
+    let vagas = 50;
+    const entrandoDiv = document.getElementById("entrando");
+    const vagasDiv = document.getElementById("vagas");
+    let index = 0;
+    const addNome = () => {
+      if (index < nomes.length && vagas > 0) {
+        entrandoDiv.innerText = `${nomes[index]} acabou de entrar no grupo! 🏠`;
+        vagas--;
+        vagasDiv.innerText = `Vagas restantes: ${vagas}`;
+        index++;
+        setTimeout(addNome, 2000);
+      } else {
+        entrandoDiv.innerText = "🚨 As vagas estão acabando! Garanta a sua agora!";
+      }
+    }
+    setTimeout(addNome, 2000);
+  </script>
+</body>
+</html>
