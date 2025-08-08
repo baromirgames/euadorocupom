@@ -71,6 +71,37 @@
       color: #ffeb3b;
       font-weight: bold;
     }
+
+    @media (max-width: 480px) {
+      .logo {
+        width: 150px;
+      }
+
+      .main-title {
+        font-size: 20px;
+      }
+
+      .sub-title {
+        font-size: 16px;
+      }
+
+      .btn-participar {
+        font-size: 18px;
+        padding: 15px 30px;
+      }
+
+      .footer-text {
+        font-size: 14px;
+      }
+
+      .countdown, .vagas {
+        font-size: 16px;
+      }
+
+      .entrando {
+        font-size: 14px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -100,7 +131,6 @@
   </div>
 
   <script>
-    // Contador regressivo de 1 minuto
     let timeLeft = 60;
     const timer = document.getElementById("timer");
     const interval = setInterval(() => {
@@ -111,7 +141,6 @@
       if (timeLeft <= 0) clearInterval(interval);
     }, 1000);
 
-    // Lista de nomes entrando no grupo
     const nomes = [
       "Ana Paula", "Carlos Silva", "Bruno Costa", "Fernanda Lima", "Marcos Souza",
       "Juliana Rocha", "Rodrigo Mendes", "Amanda Teixeira", "Lucas Almeida",
