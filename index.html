@@ -28,7 +28,7 @@
       margin: 10px 0 30px;
     }
     .logo {
-      width: 200px;
+      width: 150px;
       height: auto;
       border: 2px solid white;
       border-radius: 10px;
@@ -44,7 +44,6 @@
       margin: 30px 0;
       cursor: pointer;
       box-shadow: 0 0 20px #00cc00;
-      animation: shake 0.3s ease-in-out;
     }
     @keyframes shake {
       0%, 100% { transform: translateX(0); }
@@ -71,37 +70,6 @@
       color: #ffeb3b;
       font-weight: bold;
     }
-
-    @media (max-width: 480px) {
-      .logo {
-        width: 150px;
-      }
-
-      .main-title {
-        font-size: 20px;
-      }
-
-      .sub-title {
-        font-size: 16px;
-      }
-
-      .btn-participar {
-        font-size: 18px;
-        padding: 15px 30px;
-      }
-
-      .footer-text {
-        font-size: 14px;
-      }
-
-      .countdown, .vagas {
-        font-size: 16px;
-      }
-
-      .entrando {
-        font-size: 14px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -110,7 +78,7 @@
   </div>
 
   <div class="main-title">
-    🚨GRUPO VIP DE PROMOÇÕES E CUPONS🚨
+    🚨 GRUPO VIP DE PROMOÇÕES E CUPONS 🚨
   </div>
   <div class="sub-title">
     Produtos com 50% 60% 70% OFF 🥰
@@ -122,15 +90,16 @@
   <div class="vagas" id="vagas">Vagas restantes: 20</div>
   <div class="entrando" id="entrando"></div>
 
-  <button class="btn-participar" onclick="window.location.href='https://chat.whatsapp.com/GnkkZuAapgp0Zutp9HoPZP'">
+  <button class="btn-participar" id="btnParticipar" onclick="window.location.href='https://chat.whatsapp.com/GnkkZuAapgp0Zutp9HoPZP'">
     QUERO PARTICIPAR
   </button>
 
   <div class="footer-text">
-    💥 JÁ SOMOS +60 MIL MEMBROS 💥
+    💥 JÁ SOMOS +50 MIL MEMBROS 💥
   </div>
 
   <script>
+    // Contador regressivo de 30 segundos
     let timeLeft = 30;
     const timer = document.getElementById("timer");
     const interval = setInterval(() => {
@@ -141,6 +110,7 @@
       if (timeLeft <= 0) clearInterval(interval);
     }, 1000);
 
+    // Lista de nomes entrando no grupo
     const nomes = [
       "Ana Paula", "Carlos Silva", "Bruno Costa", "Fernanda Lima", "Marcos Souza",
       "Juliana Rocha", "Rodrigo Mendes", "Amanda Teixeira", "Lucas Almeida",
@@ -165,6 +135,15 @@
       }
     }
     setTimeout(addNome, 2000);
+
+    // Animação de vibração do botão
+    const btn = document.getElementById("btnParticipar");
+    const vibrar = () => {
+      btn.style.animation = "shake 0.5s ease-in-out";
+      setTimeout(() => btn.style.animation = "", 500);
+    }
+    vibrar(); // vibra ao entrar
+    setInterval(vibrar, 3000); // vibra a cada 3 segundos
   </script>
 </body>
 </html>
