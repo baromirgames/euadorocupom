@@ -15,86 +15,93 @@
     .top-banner {
       background-color: #e00000;
       color: white;
-      padding: 12px;
+      padding: 15px;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 18px;
     }
     .main-title {
-      font-size: 20px;
+      font-size: 22px;
       margin-top: 20px;
     }
     .sub-title {
       font-size: 16px;
-      margin: 8px 0 20px;
+      margin: 10px 0 20px;
     }
     .logo {
-      width: 150px;
+      width: 160px;
       height: auto;
       border: 2px solid white;
       border-radius: 10px;
-      margin: 0 auto;
-    }
-    .btn-participar {
-      position: relative;
-      background: linear-gradient(90deg, #00cc00 0%, #009900 100%);
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      font-size: 18px;
-      font-weight: bold;
-      border-radius: 50px;
-      margin: 20px auto;
-      cursor: pointer;
-      box-shadow: 0 0 20px #00cc00;
-      overflow: hidden;
-    }
-    /* Reflexo */
-    .btn-participar::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -75px;
-      width: 50px;
-      height: 100%;
-      background: linear-gradient(120deg, rgba(255,255,255,0.6), rgba(255,255,255,0));
-      transform: skewX(-20deg);
-      animation: reflexo 3s infinite;
-    }
-    @keyframes reflexo {
-      0% { left: -75px; }
-      50% { left: 120%; }
-      100% { left: 120%; }
-    }
-    /* Balanço a cada 3s */
-    @keyframes shake {
-      0%, 100% { transform: translateX(0); }
-      25% { transform: translateX(-5px); }
-      50% { transform: translateX(5px); }
-      75% { transform: translateX(-5px); }
+      margin-bottom: 20px;
     }
     .footer-text {
-      font-size: 14px;
+      font-size: 16px;
       margin-bottom: 20px;
     }
     .entrando {
-      margin-top: 15px;
+      margin-top: 20px;
       min-height: 40px;
-      font-size: 14px;
+      font-size: 16px;
       color: #fff8a4;
     }
     .vagas {
       color: #ffeb3b;
       font-weight: bold;
     }
+
+    /* Botão */
+    .btn-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .btn-participar {
+      background-color: #00cc00;
+      color: white;
+      border: none;
+      padding: 20px 50px;
+      font-size: 20px;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 0 20px #00cc00;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Reflexo da esquerda para direita */
+    .btn-participar::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -75px;
+      width: 50px;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.4), transparent);
+      transform: skewX(-20deg);
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -75px; }
+      50% { left: 125%; }
+      100% { left: 125%; }
+    }
+
+    /* Ajustes mobile */
     @media (max-width: 480px) {
       .main-title { font-size: 18px; }
       .sub-title { font-size: 14px; }
       .logo { width: 120px; }
-      .btn-participar { font-size: 16px; padding: 12px 25px; }
+      .btn-participar { padding: 15px 30px; font-size: 16px; }
     }
   </style>
 </head>
 <body>
+
   <div class="top-banner">
     🎯 APROVEITE AGORA AS MELHORES PROMOÇÕES DE 2025!
   </div>
@@ -111,22 +118,18 @@
   <div class="vagas" id="vagas">Vagas restantes: 20</div>
   <div class="entrando" id="entrando"></div>
 
-  <button class="btn-participar" id="botao" onclick="window.location.href='https://chat.whatsapp.com/GnkkZuAapgp0Zutp9HoPZP'">
-    QUERO PARTICIPAR
-  </button>
+  <div class="btn-container">
+    <button class="btn-participar" onclick="window.location.href='https://chat.whatsapp.com/GnkkZuAapgp0Zutp9HoPZP'">
+      QUERO PARTICIPAR 
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:24px;height:24px;">
+    </button>
+  </div>
 
   <div class="footer-text">
     💥 JÁ SOMOS +50 MIL MEMBROS 💥
   </div>
 
   <script>
-    // Balanço do botão a cada 3 segundos
-    const botao = document.getElementById("botao");
-    setInterval(() => {
-      botao.style.animation = "shake 0.5s ease-in-out";
-      setTimeout(() => botao.style.animation = "", 500);
-    }, 3000);
-
     // Lista de nomes entrando no grupo
     const nomes = [
       "Ana Paula", "Carlos Silva", "Bruno Costa", "Fernanda Lima", "Marcos Souza",
